@@ -7,3 +7,5 @@ gitconfig:
 	@git config --global alias.rsh "reset --hard HEAD"
 	@git config --global alias.dfh "diff HEAD"
 	@git config --global alias.df  "diff HEAD~1"
+	@git config --global alias.df  "diff HEAD~1"
+	@git config --global --add oh-my-zsh.hide-status 1
