@@ -28,6 +28,7 @@ let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_PopupHeight = 0.5
 let g:Lf_PopupWidth = 0.9
 let g:Lf_GtagsGutentags = 1
+let g:Lf_GtagsAutoGenerate = 1
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.LfCache/gtags')
 
 " Leaderf short cuts maps
@@ -35,18 +36,25 @@ let mapleader=' '
 nnoremap <leader>p :LeaderfFile<CR>
 nnoremap <leader>m :LeaderfMru<CR>
 nnoremap <leader>b :LeaderfBuffer<CR>
-nnoremap <leader>t :LeaderfBufTag<CR>
-nnoremap <leader>f :LeaderfFunction<CR>
-nnoremap <leader>l :LeaderfLine<CR>
 nnoremap <leader>c :LeaderfCommand<CR>
 nnoremap <leader>q :LeaderfQuickFix<CR>
-nnoremap <leader>r :Leaderf! rg -e 
 nnoremap <leader>h :Leaderf cmdHistory<CR>
+
+nnoremap <leader>l :LeaderfLine<CR>
+nnoremap <leader>t :LeaderfBufTag<CR>
+nnoremap <leader>r :Leaderf! rg -e 
+nnoremap <leader>d :Leaderf! gtags -d 
+nnoremap <leader>f :LeaderfFunction<CR>
 
 nnoremap <leader>L :Leaderf! line --input=<C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>T :Leaderf! bufTag --input=<C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>F :Leaderf! function --input=<C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>R :Leaderf! rg -e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>D :Leaderf! gtags -d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>F :Leaderf! function --input=<C-R>=expand("<cword>")<CR><CR>
+
+nnoremap <leader><leader>l :Leaderf! line --input=<C-R>"<CR>
+nnoremap <leader><leader>r :Leaderf! rg -e <C-R>"<CR>
+nnoremap <leader><leader>d :Leaderf! gtags -d <C-R>"<CR>
 
 nnoremap go :Leaderf! --recall<CR>
 nnoremap gn :Leaderf! --next<CR>
