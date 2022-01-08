@@ -1,3 +1,6 @@
 [submodule "vimrc/dein.vim"]
 	path = vimrc/dein.vim
 	url = https://github.com/Shougo/dein.vim.git
+[submodule "external/fzf.git"]
+	path = external/fzf.git
+	url = git://github.com/junegunn/fzf.git
