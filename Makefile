@@ -17,6 +17,7 @@ git:
 	@git config --global alias.dfh "diff HEAD"
 	@git config --global alias.df  "diff HEAD~1"
 	@git config --global --add oh-my-zsh.hide-status 1
+	@git config --global --add oh-my-zsh.hide-dirty 1
 
 
 # may be need sudo

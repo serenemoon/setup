@@ -5,14 +5,20 @@ common environment setup
 * ```cp external/ohmyzsh/templates/zshrc.zsh-template ~/.zshrc```
 * modify ~/.zshrc:
 > export ZSH=this_repo_dir/external/ohmyzsh
+
 > ZSH_THEME="ys"
+
 > DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 > plugins=(git autojump repo tmux extract z)
+
 > add line: [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 ## fix large git repository slow
 
 * git config --global --add oh-my-zsh.hide-status 1
+* git config --global --add oh-my-zsh.hide-dirty 1
 
 # vim plugin
 
