@@ -3,4 +3,10 @@
 	url = https://github.com/Shougo/dein.vim.git
 [submodule "external/fzf.git"]
 	path = external/fzf.git
-	url = git://github.com/junegunn/fzf.git
+	url = https://github.com/junegunn/fzf.git
+[submodule "external/ohmyzsh"]
+	path = external/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "external/autojump"]
+	path = external/autojump
+	url = https://github.com/wting/autojump.git

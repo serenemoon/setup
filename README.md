@@ -2,6 +2,13 @@
 common environment setup
 
 # zsh infos
+* ```cp external/ohmyzsh/templates/zshrc.zsh-template ~/.zshrc```
+* modify ~/.zshrc:
+> export ZSH=this_repo_dir/external/ohmyzsh
+> ZSH_THEME="ys"
+> DISABLE_UNTRACKED_FILES_DIRTY="true"
+> plugins=(git autojump repo tmux extract z)
+> add line: [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## fix large git repository slow
 

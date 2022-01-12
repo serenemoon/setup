@@ -6,6 +6,8 @@ vim:
 
 git:
 	@echo "set up git ailases!"
+	@git config --global http.sslverify false
+	@git config --global https.sslverify false
 	@git config --global alias.st status
 	@git config --global alias.co checkout
 	@git config --global alias.cm commit
@@ -13,7 +15,6 @@ git:
 	@git config --global alias.cme "commit --amend"
 	@git config --global alias.rsh "reset --hard HEAD"
 	@git config --global alias.dfh "diff HEAD"
-	@git config --global alias.df  "diff HEAD~1"
 	@git config --global alias.df  "diff HEAD~1"
 	@git config --global --add oh-my-zsh.hide-status 1
 
@@ -30,3 +31,8 @@ fzf:
 	@git submodule update --init
 	@cd external; cp fzf fzf.git/bin; [ -f fzf.git/bin/fzf ] && echo "Copy fzf Success!" || echo "Copy fzf Failed!"
 	@ [ -x external/fzf.git/install ] && ./external/fzf.git/install
+
+
+zsh:
+	@[ ! -f ~/.zshrc ] && external/ohmyzsh/tools/install.sh || echo "please backup then remove ~/.zshrc first"
+	@which python && external/autojump/install.py || echo "please install python"
