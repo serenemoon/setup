@@ -1,7 +1,6 @@
 if &compatible
   set nocompatible " Be iMproved
 endif
-
 let dein_install_directory = expand("~/.cache/dein")
 if !isdirectory(dein_install_directory)
     echomsg dein_install_directory . " don't exist, creaing..."
@@ -57,6 +56,7 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
+" let g:dein#types#git#default_protocol='ssh'
 if dein#check_install()
   call dein#install()
 endif

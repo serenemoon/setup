@@ -1,4 +1,4 @@
-default:git
+default:git vim rg fzf
 
 vim:
 	-@rm ~/.vimrc
@@ -31,9 +31,14 @@ rg:
 fzf:
 	@git submodule update --init
 	@cd external; cp fzf fzf.git/bin; [ -f fzf.git/bin/fzf ] && echo "Copy fzf Success!" || echo "Copy fzf Failed!"
-	@ [ -x external/fzf.git/install ] && ./external/fzf.git/install
-
+	@[ -x external/fzf.git/install ] && ./external/fzf.git/install
 
 zsh:
-	@[ ! -f ~/.zshrc ] && external/ohmyzsh/tools/install.sh || echo "please backup then remove ~/.zshrc first"
-	@which python && external/autojump/install.py || echo "please install python"
+	@which zsh || { echo "installing zsh" && sudo apt install -y zsh; }
+	@[ ! -f ~/.zshrc ] && cd external/ohmyzsh/tools && install.sh || echo "please backup then remove ~/.zshrc first"
+	@if [ ! -d ~/.autojump ]; then \
+		which python && cd external/autojump && ./install.py || echo "autojump install failed"; \
+	else \
+	 	echo "autojump already installed!"; \
+	fi
+
