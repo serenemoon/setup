@@ -19,10 +19,8 @@ call dein#begin(dein_install_directory)
 
 " Let dein manage dein
 call dein#add(dein_self_directory)
-if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-endif
+call dein#add('roxma/nvim-yarp')
+call dein#add('roxma/vim-hug-neovim-rpc')
 
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
@@ -48,6 +46,7 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('dimasg/vim-mark')
 call dein#add('skywind3000/vim-terminal-help.git')
+call dein#add('skywind3000/asyncrun.vim')
 " Required:
 call dein#end()
 
@@ -60,4 +59,4 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
-
+exec 'helptags ' . dein_install_directory . '/.cache/.vimrc/.dein/doc'

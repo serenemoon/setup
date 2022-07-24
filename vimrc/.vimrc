@@ -4,6 +4,7 @@ let scriptfiles = systemlist("ls " . scriptdir)->filter({idx, val -> val =~ "vim
 for s in scriptfiles
     exec "source " . scriptdir . "/" . s
 endfor
+let g:setup_dir=expand("<sfile>:p:h:h")
 
 colorscheme molokai
 

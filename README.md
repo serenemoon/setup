@@ -24,8 +24,19 @@ common environment setup
 
 * enter vim, then type `:call dein#install()`
 
+## denite
+msgpack required
+pynvim required
+
+```bash
+sudo apt install python3-msgpack
+sudo apt install python3-pip
+pip install pynvim
+```
+
 # Vim DevIcon Font:
 
 * Download UbuntuMono.zip file from url: _https://github.com/ryanoasis/nerd-fonts/releases_
 * Copy all .ttf files into **C:/Windows/Fonts** directory
 * Select font in Term
+

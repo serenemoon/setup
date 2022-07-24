@@ -60,7 +60,7 @@ set termwinkey&
 unlet mapleader
 
 " cscope mapping
-set cst
+set nocst
 set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>

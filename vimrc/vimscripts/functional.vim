@@ -21,23 +21,4 @@ function s:toggle_qf_window()
     endif
 endfunction
 
-function s:find_dir_contains(marker)
-    let cur_dir = expand('%:p:h')
-    let x = 0
-    while cur_dir != '/' && x < 50 " at max find 50 directories upward
-        let fd = cur_dir . '/' . a:marker
-        if isdirectory(fd) || filereadable(fd)
-            return cur_dir
-        endif
-        let cur_dir = fnamemodify(cur_dir, ":h")
-        let x = x + 1
-    endwhile
-    return ''
-endfunction
-
-function s:auto_add_ctags_cscope()
-    let repodir = s:find_dir_contains('.repo')
-endfunction
-command! -nargs=1 FD :echom s:find_dir_contains(<q-args>)
-
 nnoremap <silent> ,, :call <SID>toggle_qf_window()<CR>
