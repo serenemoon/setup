@@ -29,6 +29,7 @@ return require('packer').startup(function()
 	use 'SirVer/ultisnips'
 	use 'honza/vim-snippets'
     use 'kyazdani42/nvim-tree.lua'
+    use { 'nvim-treesitter/nvim-treesitter' }
     use 'skywind3000/asyncrun.vim'
 end)
 
