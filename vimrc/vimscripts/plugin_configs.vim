@@ -18,6 +18,8 @@ let g:Lf_IndexTimeLimit = 10
 let g:Lf_PreviewInPopup = 1
 let g:Lf_FollowLinks = 1
 let g:Lf_MruMaxFiles = 500
+let g:Lf_IndexTimeLimit = 60
+let g:Lf_MaxCount = 100000
 let g:Lf_StlColorscheme = 'default'
 let g:Lf_PopupColorscheme = 'default'
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
@@ -28,7 +30,7 @@ let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_PopupHeight = 0.5
 let g:Lf_PopupWidth = 0.9
 let g:Lf_GtagsGutentags = 1
-let g:Lf_GtagsAutoGenerate = 1
+let g:Lf_GtagsAutoGenerate = 0
 let g:gutentags_cache_dir = expand(g:Lf_CacheDirectory.'/.LfCache/gtags')
 
 " Leaderf short cuts maps

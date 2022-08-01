@@ -40,3 +40,11 @@ pip install pynvim
 * Copy all .ttf files into **C:/Windows/Fonts** directory
 * Select font in Term
 
+
+# To Install
+
+## universal-ctags
+* github repo: https://github.com/universal-ctags/ctags
+* apt install: ```sudo apt install universal-ctags``
+> ctags --version  # to see is ctags soft-linked-to ctags-universal, if not, do:
+> ```cd /usr/bin; sudo rm ctags; sudo ln -s ctags-universal ctags```

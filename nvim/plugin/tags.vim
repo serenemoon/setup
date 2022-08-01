@@ -1,5 +1,4 @@
-
-let g:repo_tags_debug = 1
+let g:repo_tags_debug = 0
 function s:log_debug(log)
     if g:repo_tags_debug != 0
         echohl WarningMsg | echo a:log | echohl None
@@ -72,6 +71,8 @@ endfunction
 function s:auto_add_ctags_cscope()
     let repodir = s:find_dir_contains('.repo')
 endfunction
+
+autocmd BufEnter * call s:connect_db_of_cur_file()
 command! -nargs=1 FD :echom s:find_dir_contains(<q-args>)
 
 command! -nargs=1 EchoDB :echom s:connect_db_of_cur_file()
