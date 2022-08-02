@@ -2,11 +2,6 @@ local map = vim.api.nvim_set_keymap
 local opt = { noremap = true }
 local sopt = { noremap = true, silent = true }
 
--- NERDTree bindings
--- F3: open curfile directory, Shift-F3: open curfile cvs directory
-map('n', '<F3>', ':exec "NERDTreeToggle " . resolve(expand("%:p:h"))<CR>', sopt)
-map('n', '<F15>', ':exec "NERDTreeToggleVCS " . resolve(expand("%:p:h"))<CR>', sopt)
-
 -- Tagbar bindings
 map('n', '<F2>', ':TagbarOpenAutoClose<CR>', sopt)
 
@@ -17,10 +12,10 @@ map("n", "<A-q>", ":q<CR>", sopt)
 map("n", ",qa", ":qa<CR>", sopt)
 map("n", "<A-w>", ":w<CR>", sopt)
 
-map("n", "sv", ":vsp<CR>", sopt)
-map("n", "sh", ":sp<CR>", sopt)
-map("n", "sc", "<C-w>c", sopt)
-map("n", "so", "<C-w>o", sopt) -- close others
+map("n", "<leader>sv", ":vsp<CR>", sopt)
+map("n", "<leader>sh", ":sp<CR>", sopt)
+map("n", "<leader>sc", "<C-w>c", sopt)
+map("n", "<leader>so", "<C-w>o", sopt) -- close others
 
 -- script file edit
 map("n", "<leader>ee", ":e ~/.config/nvim/init.lua<CR>", sopt)
