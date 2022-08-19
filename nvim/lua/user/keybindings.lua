@@ -99,3 +99,16 @@ vim.cmd([[
 let g:gutentags_modules = ['ctags', 'cscope']
 ]])
 
+-- K for search highlight
+vim.cmd([[
+nnoremap K  :let @/="\\<<C-R><C-W>\\>" <bar> set hlsearch<CR>
+vnoremap K  y:let @/='<C-R>=escape('<C-R>"', '/\')<CR>' <bar> set hlsearch<CR>
+]])
+
+-- 
+vim.cmd([[
+nnoremap ,ed :exec 'NERDTree ' .. stdpath('data')<CR>
+
+nnoremap gv :exec "h " .. expand('<cword>')<CR>
+]]
+)

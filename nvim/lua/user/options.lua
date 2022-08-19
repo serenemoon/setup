@@ -8,6 +8,7 @@ vim.g.rehash256 = 1
 vim.cmd([[
 colorscheme molokai
 set termguicolors
+set mouse=
 set t_Co=256
 set laststatus=2
 set timeout

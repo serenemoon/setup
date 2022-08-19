@@ -78,13 +78,3 @@ nmap <unique> m? <Plug>MarkSearchAnyPrev
 let g:marker_loaded = 1
 endif
 ]])
-
-
--- NCM2 config
-vim.cmd([[
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-]])

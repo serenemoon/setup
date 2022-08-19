@@ -1,12 +1,15 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
+    use { 'williamboman/mason.nvim' }
+    use { 'williamboman/mason-lspconfig.nvim' }
 	use 'ncm2/ncm2'
 	use 'ncm2/ncm2-bufword'
 	use 'ncm2/ncm2-path'
 	use 'ncm2/ncm2-ultisnips'
 	use 'ncm2/ncm2-syntax'
-	use 'Shougo/neco-syntax'
 	use 'ncm2/ncm2-vim'
+	use 'ncm2/ncm2-jedi'
+	use 'Shougo/neco-syntax'
 	use 'Shougo/neco-vim'
 	use { 'neovim/nvim-lspconfig' }
 	use { 'roxma/nvim-yarp' }
