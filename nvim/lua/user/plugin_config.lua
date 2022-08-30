@@ -5,9 +5,9 @@ let g:Lf_CacheDirectory = expand('~/.cache')
 let g:Lf_IndexTimeLimit = 10
 let g:Lf_PreviewInPopup = 1
 let g:Lf_FollowLinks = 1
-let g:Lf_MruMaxFiles = 500
+let g:Lf_MruMaxFiles = 200
 let g:Lf_IndexTimeLimit = 60
-let g:Lf_MaxCount = 100000
+let g:Lf_MaxCount = 10000
 let g:Lf_StlColorscheme = 'default'
 let g:Lf_PopupColorscheme = 'default'
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
@@ -46,6 +46,12 @@ nnoremap gn :Leaderf! --next<CR>
 nnoremap gp :Leaderf! --previous<CR>
 ]])
 
+-- ColorScheme config
+vim.cmd([[
+set termguicolors
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
+]])
 
 -- Vim-Mark config
 vim.cmd([[
@@ -59,11 +65,11 @@ let g:mwPalettes = {
     \   { 'ctermbg':'Red',        'ctermfg':'Black', 'guibg':'#FF7272', 'guifg':'Black' },
     \   { 'ctermbg':'Magenta',    'ctermfg':'Black', 'guibg':'#FFB3FF', 'guifg':'Black' },
     \   { 'ctermbg':'Blue',       'ctermfg':'Black', 'guibg':'#9999FF', 'guifg':'Black' },
-    \   { 'ctermbg':'Brown',      'ctermfg':'Black', 'guibg':'#FFC4A1', 'guifg':'#803000' },
-    \   { 'ctermbg':'DarkMagenta','ctermfg':'Black', 'guibg':'#A29CCF', 'guifg':'#120080' },
-    \   { 'ctermbg':'DarkRed',    'ctermfg':'Black', 'guibg':'#FF0000', 'guifg':'#FFFFFF' },
-    \   { 'ctermbg':'DarkCyan',   'ctermfg':'Black', 'guibg':'#E3E3D2', 'guifg':'#999999' },
-    \   { 'ctermbg':'DarkGreen',  'ctermfg':'Black', 'guibg':'#D0FFA1', 'guifg':'#3F8000' },
+    \   { 'ctermbg':'Brown',      'ctermfg':'Black', 'guibg':'#FFC4A1', 'guifg':'Black' },
+    \   { 'ctermbg':'DarkMagenta','ctermfg':'Black', 'guibg':'#A29CCF', 'guifg':'Black' },
+    \   { 'ctermbg':'DarkRed',    'ctermfg':'Black', 'guibg':'#FF0000', 'guifg':'Black' },
+    \   { 'ctermbg':'DarkCyan',   'ctermfg':'Black', 'guibg':'#E3E3D2', 'guifg':'Black' },
+    \   { 'ctermbg':'DarkGreen',  'ctermfg':'Black', 'guibg':'#D0FFA1', 'guifg':'Black' },
     \]
     \}
 if get(g:, 'marker_loaded', 0) == 0
@@ -78,3 +84,9 @@ nmap <unique> m? <Plug>MarkSearchAnyPrev
 let g:marker_loaded = 1
 endif
 ]])
+
+require'nvim-tree'.setup{}
+
+-- Gutentags config
+vim.g.gutentags_define_advanced_commands = 1
+vim.g.gutentags_modules = { 'ctags', 'gtags_cscope' }

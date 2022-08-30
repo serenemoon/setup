@@ -9,15 +9,16 @@ return require('packer').startup(function()
 	use 'ncm2/ncm2-syntax'
 	use 'ncm2/ncm2-vim'
 	use 'ncm2/ncm2-jedi'
+	use 'ncm2/ncm2-pyclang'
 	use 'Shougo/neco-syntax'
 	use 'Shougo/neco-vim'
+    use { 'liuchengxu/vista.vim' }
 	use { 'neovim/nvim-lspconfig' }
 	use { 'roxma/nvim-yarp' }
 	use { 'preservim/tagbar' }
 	use { 'preservim/nerdtree' }
 	use { 'preservim/nerdcommenter' }
 	use { 'ludovicchabant/vim-gutentags' }
-	use { 'skywind3000/vim-terminal-help' }
 	use "navarasu/onedark.nvim"
 	use "Yggdroot/LeaderF"
 	use 'tpope/vim-fugitive'
@@ -36,7 +37,11 @@ return require('packer').startup(function()
 	use 'honza/vim-snippets'
 	use 'kyazdani42/nvim-tree.lua'
 	use { 'nvim-treesitter/nvim-treesitter' }
-	use 'skywind3000/asyncrun.vim'
+	use { 'skywind3000/vim-terminal-help' }
+    use { 'skywind3000/asyncrun.vim' }
+    use { 'skywind3000/asynctasks.vim' }
+    use { 'skywind3000/LeaderF-snippet' }
+    use { 'ray-x/lsp_signature.nvim' }
 
 	use 'tomasr/molokai'
 	use { 'morhetz/gruvbox' }

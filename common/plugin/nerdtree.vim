@@ -30,8 +30,15 @@ function s:open_nerdtree_if_empty_buffer()
     endif
 endfunction
 
-let NERDTreeDirArrowExpandable="+"
-let NERDTreeDirArrowCollapsible="-"
+
+
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="-"
+
+nnoremap <Plug>SelfToggleCurFileDir :exec 'NERDTreeToggle ' .. expand('%:p:h')<CR>
+nnoremap <Plug>SelfToggleCurProjectDir :exec 'NERDTreeToggleVCS ' .. expand('%:p:h')<CR>
+
 
 autocmd! VimEnter * call <SID>open_nerdtree_if_empty_buffer()
 nnoremap <F3> :call <SID>toggle_nerdtree_window(v:false)<CR>

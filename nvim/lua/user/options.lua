@@ -2,12 +2,11 @@ vim.o.swapfile = false
 vim.o.awa = true -- auto write all
 vim.o.cst = false
 vim.o.cscopequickfix ='s-,c-,d-,i-,t-,e-,a-'
-vim.g.molokai_original = 1
-vim.g.rehash256 = 1
+-- we don't need clipboard, disable load clipboard.vim
+-- it costs too much time at startup
+vim.g.loaded_clipboard_provider = 1
 
 vim.cmd([[
-colorscheme molokai
-set termguicolors
 set mouse=
 set t_Co=256
 set laststatus=2

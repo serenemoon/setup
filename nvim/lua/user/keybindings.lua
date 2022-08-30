@@ -18,7 +18,7 @@ map("n", "<leader>sc", "<C-w>c", sopt)
 map("n", "<leader>so", "<C-w>o", sopt) -- close others
 
 -- script file edit
-map("n", "<leader>ee", ":e ~/.config/nvim/init.lua<CR>", sopt)
+map("n", "<leader>ee", ":e ~/.config/nvim/init.vim<CR>", sopt)
 map("n", "<leader>src", ":source %<CR>", opt)
 map("n", "<leader>ss", ":source ~/.config/nvim/init.lua<CR>", opt)
 
@@ -94,10 +94,6 @@ map <leader>f <Plug>(easymotion-f)
 map <leader>F <Plug>(easymotion-F)
 ]])
 
--- Gutentags config
-vim.cmd([[
-let g:gutentags_modules = ['ctags', 'cscope']
-]])
 
 -- K for search highlight
 vim.cmd([[
