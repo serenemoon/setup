@@ -10,3 +10,15 @@
 [submodule "external/autojump"]
 	path = external/autojump
 	url = https://github.com/wting/autojump.git
+[submodule "external/submodule/autojump"]
+	path = external/submodule/autojump
+	url = https://github.com/wting/autojump.git
+[submodule "external/submodule/ohmyzsh"]
+	path = external/submodule/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "external/submodule/powerlevel10k"]
+	path = external/submodule/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "external/submodule/fzf"]
+	path = external/submodule/fzf
+	url = https://github.com/junegunn/fzf.git

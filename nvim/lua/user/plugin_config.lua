@@ -90,3 +90,4 @@ require'nvim-tree'.setup{}
 -- Gutentags config
 vim.g.gutentags_define_advanced_commands = 1
 vim.g.gutentags_modules = { 'ctags', 'gtags_cscope' }
+

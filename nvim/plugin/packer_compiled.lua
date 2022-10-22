@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -74,30 +79,45 @@ _G.packer_plugins = {
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/LeaderF",
     url = "https://github.com/Yggdroot/LeaderF"
   },
+  ["LeaderF-snippet"] = {
+    loaded = true,
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/LeaderF-snippet",
+    url = "https://github.com/skywind3000/LeaderF-snippet"
+  },
   ["asyncrun.vim"] = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/asyncrun.vim",
     url = "https://github.com/skywind3000/asyncrun.vim"
+  },
+  ["asynctasks.vim"] = {
+    loaded = true,
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/asynctasks.vim",
+    url = "https://github.com/skywind3000/asynctasks.vim"
   },
   delimitMate = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/delimitMate",
     url = "https://github.com/Raimondi/delimitMate"
   },
-  ["denite.nvim"] = {
+  ["deoplete-lsp"] = {
     loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/denite.nvim",
-    url = "https://github.com/Shougo/denite.nvim"
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/deoplete-lsp",
+    url = "https://github.com/deoplete-plugins/deoplete-lsp"
+  },
+  ["deoplete.nvim"] = {
+    loaded = true,
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
+    url = "https://github.com/Shougo/deoplete.nvim"
   },
   gruvbox = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
-  gutentags_plus = {
+  ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/gutentags_plus",
-    url = "https://github.com/skywind3000/gutentags_plus"
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -113,41 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/molokai",
     url = "https://github.com/tomasr/molokai"
-  },
-  ncm2 = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2",
-    url = "https://github.com/ncm2/ncm2"
-  },
-  ["ncm2-bufword"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-bufword",
-    url = "https://github.com/ncm2/ncm2-bufword"
-  },
-  ["ncm2-jedi"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-jedi",
-    url = "https://github.com/ncm2/ncm2-jedi"
-  },
-  ["ncm2-path"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-path",
-    url = "https://github.com/ncm2/ncm2-path"
-  },
-  ["ncm2-syntax"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-syntax",
-    url = "https://github.com/ncm2/ncm2-syntax"
-  },
-  ["ncm2-ultisnips"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-ultisnips",
-    url = "https://github.com/ncm2/ncm2-ultisnips"
-  },
-  ["ncm2-vim"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/ncm2-vim",
-    url = "https://github.com/ncm2/ncm2-vim"
   },
   ["neco-syntax"] = {
     loaded = true,
@@ -189,11 +174,6 @@ _G.packer_plugins = {
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/nvim-yarp",
     url = "https://github.com/roxma/nvim-yarp"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/serene/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -203,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/serene/.local/share/nvim/site/pack/packer/start/tagbar",
     url = "https://github.com/preservim/tagbar"
+  },
+  ["tmux-complete.vim"] = {
+    loaded = true,
+    path = "/home/serene/.local/share/nvim/site/pack/packer/start/tmux-complete.vim",
+    url = "https://github.com/wellle/tmux-complete.vim"
   },
   ultisnips = {
     loaded = true,
@@ -282,6 +267,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
