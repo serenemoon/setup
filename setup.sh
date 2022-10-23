@@ -62,8 +62,13 @@ setup_fzf() {
     $SUBMODULE_DIR/fzf/install --all
 }
 
+setup_autojump() {
+	cd $SUBMODULE_DIR/autojump && ./install.py || echo "please do: git submodule update --init\nthen re run: make autojump"
+}
+
 is_zsh && setup_ohmyzsh
 is_zsh && setup_powerlevel10k
 setup_fzf
+setup_autojump
 setup_initrc
-# vim: ft=sh
+# vim: ft=bash

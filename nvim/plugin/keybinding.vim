@@ -17,6 +17,7 @@ call s:map_key('n', 'NT_CurFileDir', '<Plug>SelfToggleCurFileDir')
 call s:map_key('n', 'NT_CurProjectDir', '<Plug>SelfToggleCurProjecrDir')
 
 
+nmap <F5> :AsyncTask file-run<CR>
 
 
 
