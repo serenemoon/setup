@@ -5051,6 +5051,7 @@ clipboard	provider.txt	/*clipboard*
 clipboard-tool	provider.txt	/*clipboard-tool*
 clipboard-unnamed	options.txt	/*clipboard-unnamed*
 clipboard-unnamedplus	options.txt	/*clipboard-unnamedplus*
+clipboard-wsl	provider.txt	/*clipboard-wsl*
 clipboard-x11	provider.txt	/*clipboard-x11*
 clojure-indent	indent.txt	/*clojure-indent*
 closure	eval.txt	/*closure*
@@ -5473,6 +5474,7 @@ event-variable	eval.txt	/*event-variable*
 eventhandler()	builtin.txt	/*eventhandler()*
 events	autocmd.txt	/*events*
 ex-cmd-index	index.txt	/*ex-cmd-index*
+ex-commands	index.txt	/*ex-commands*
 ex-edit-index	index.txt	/*ex-edit-index*
 ex-flags	cmdline.txt	/*ex-flags*
 ex:	options.txt	/*ex:*
@@ -6973,7 +6975,10 @@ lsp-vs-treesitter	lsp.txt	/*lsp-vs-treesitter*
 lsp.txt	lsp.txt	/*lsp.txt*
 lua	lua.txt	/*lua*
 lua-builtin	lua.txt	/*lua-builtin*
+lua-call-function	lua.txt	/*lua-call-function*
 lua-commands	lua.txt	/*lua-commands*
+lua-compat	lua.txt	/*lua-compat*
+lua-concepts	lua.txt	/*lua-concepts*
 lua-diff	lua.txt	/*lua-diff*
 lua-eval	lua.txt	/*lua-eval*
 lua-filetype	lua.txt	/*lua-filetype*
@@ -6986,15 +6991,13 @@ lua-loop-callbacks	lua.txt	/*lua-loop-callbacks*
 lua-loop-threading	lua.txt	/*lua-loop-threading*
 lua-mpack	lua.txt	/*lua-mpack*
 lua-options	lua.txt	/*lua-options*
+lua-package-path	lua.txt	/*lua-package-path*
 lua-patterns	lua.txt	/*lua-patterns*
 lua-regex	lua.txt	/*lua-regex*
 lua-require	lua.txt	/*lua-require*
-lua-require-example	lua.txt	/*lua-require-example*
 lua-special-tbl	lua.txt	/*lua-special-tbl*
 lua-spell	lua.txt	/*lua-spell*
 lua-stdlib	lua.txt	/*lua-stdlib*
-lua-syntax-call-function	lua.txt	/*lua-syntax-call-function*
-lua-syntax-help	lua.txt	/*lua-syntax-help*
 lua-treesitter	treesitter.txt	/*lua-treesitter*
 lua-treesitter-core	treesitter.txt	/*lua-treesitter-core*
 lua-treesitter-highlighter	treesitter.txt	/*lua-treesitter-highlighter*
@@ -8071,6 +8074,7 @@ package.path	luaref.txt	/*package.path*
 package.preload()	luaref.txt	/*package.preload()*
 package.seeall()	luaref.txt	/*package.seeall()*
 packages	repeat.txt	/*packages*
+packages-runtimepath	options.txt	/*packages-runtimepath*
 packload-two-steps	repeat.txt	/*packload-two-steps*
 page-down	intro.txt	/*page-down*
 page-up	intro.txt	/*page-up*
@@ -8156,6 +8160,7 @@ popt-option	print.txt	/*popt-option*
 popup-menu	gui.txt	/*popup-menu*
 popupmenu-completion	insert.txt	/*popupmenu-completion*
 popupmenu-keys	insert.txt	/*popupmenu-keys*
+portable-config	nvim.txt	/*portable-config*
 postgresql	ft_sql.txt	/*postgresql*
 postscr.vim	syntax.txt	/*postscr.vim*
 postscript-cjk-printing	print.txt	/*postscript-cjk-printing*
@@ -8406,7 +8411,6 @@ rpcstop()	deprecated.txt	/*rpcstop()*
 rrst.vim	syntax.txt	/*rrst.vim*
 rst.vim	syntax.txt	/*rst.vim*
 rsync	pi_netrw.txt	/*rsync*
-rtp-packages	options.txt	/*rtp-packages*
 ruby	if_ruby.txt	/*ruby*
 ruby-buffer	if_ruby.txt	/*ruby-buffer*
 ruby-command	if_ruby.txt	/*ruby-command*
@@ -8819,7 +8823,7 @@ string.dump()	luaref.txt	/*string.dump()*
 string.find()	luaref.txt	/*string.find()*
 string.format()	luaref.txt	/*string.format()*
 string.gmatch()	luaref.txt	/*string.gmatch()*
-string.gsu{b}()	luaref.txt	/*string.gsu{b}()*
+string.gsub()	luaref.txt	/*string.gsub()*
 string.len()	luaref.txt	/*string.len()*
 string.lower()	luaref.txt	/*string.lower()*
 string.match()	luaref.txt	/*string.match()*
@@ -10026,7 +10030,6 @@ whitespace	pattern.txt	/*whitespace*
 wildcard	editing.txt	/*wildcard*
 wildcards	editing.txt	/*wildcards*
 wildmenumode()	builtin.txt	/*wildmenumode()*
-win32-gettext	mlang.txt	/*win32-gettext*
 win32-hidden-menus	gui.txt	/*win32-hidden-menus*
 win_execute()	builtin.txt	/*win_execute()*
 win_findbuf()	builtin.txt	/*win_findbuf()*

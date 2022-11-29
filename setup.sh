@@ -71,4 +71,8 @@ is_zsh && setup_powerlevel10k
 setup_fzf
 setup_autojump
 setup_initrc
+
+sudo apt install -y python3-venv
+sudo apt install -y universal-ctags
+sudo apt install -y global
 # vim: ft=bash

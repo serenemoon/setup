@@ -11,15 +11,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-require('packer').init({
-  max_jobs = 2,
-  git = {
-    default_url_format = 'https://gitclone.com/github.com/%s.git',
-  }
-  }
-)
-
-
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here

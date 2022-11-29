@@ -16,8 +16,10 @@ call s:map_key('n', 'NT_VIMSETUP', ':NERDTree ' .. g:self_setup_dir .. '<CR>')
 call s:map_key('n', 'NT_CurFileDir', '<Plug>SelfToggleCurFileDir')
 call s:map_key('n', 'NT_CurProjectDir', '<Plug>SelfToggleCurProjecrDir')
 
+nmap <A-e> A
+imap <A-e> <C-O>A
 
-nmap <F5> :AsyncTask file-run<CR>
+"nmap <F5> :AsyncTask file-run<CR>
 
 
 

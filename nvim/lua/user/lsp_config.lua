@@ -5,7 +5,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
-require "lsp_signature".setup({
+local sig_setup = {
 	debug = false, -- set to true to enable debug logging
 	floating_window_off_x = 1, -- adjust float windows x position.
 	floating_window_off_y = 0, -- adjust float windows y position. e.g -2 move window up 2 lines; 2 move down 2 lines
@@ -20,7 +20,9 @@ require "lsp_signature".setup({
 	hint_enable = true, -- virtual hint enable
 	hint_prefix = "🐼 ", -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
 	hint_scheme = "String",
-})
+};
+
+require "lsp_signature".setup(sig_setup)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)

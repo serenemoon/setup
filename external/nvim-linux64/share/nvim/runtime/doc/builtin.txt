@@ -3804,15 +3804,15 @@ has({feature})	Returns 1 if {feature} is supported, 0 otherwise.  The
 		{feature} argument is a feature name like "nvim-0.2.1" or
 		"win32", see below.  See also |exists()|.
 
-		If the code has a syntax error, then Nvim may skip the rest
-		of the line and miss |:endif|. >
-	if has('feature') | let x = this->breaks->without->the->feature | endif
-<
-		Put |:if| and |:endif| on separate lines to avoid the
-		syntax error. >
-	if has('feature')
-	  let x = this->breaks->without->the->feature
-	endif
+		To get the system name use |vim.loop|.os_uname() in Lua: >
+			:lua print(vim.loop.os_uname().sysname)
+
+<		If the code has a syntax error then Vimscript may skip the
+		rest of the line.  Put |:if| and |:endif| on separate lines to
+		avoid the syntax error: >
+			if has('feature')
+			  let x = this->breaks->without->the->feature
+			endif
 <
 		Vim's compile-time feature-names (prefixed with "+") are not
 		recognized because Nvim is always compiled with all possible
@@ -6829,18 +6829,24 @@ serverstart([{address}])				*serverstart()*
 		|RPC| messages. Clients can send |API| commands to the
 		returned address to control Nvim.
 
-		Returns the address string (may differ from the requested
-		{address}).
-		 
-		- If {address} contains a colon ":" it is interpreted as
-		  a TCP/IPv4/IPv6 address where the last ":" separates host
-		  and port (empty or zero assigns a random port).
-		- Else it is interpreted as a named pipe or Unix domain socket
-		  path. If there are no slashes it is treated as a name and
-		  appended to a generated path.
-		- If {address} is empty it generates a path.
+		Returns the address string (which may differ from the
+		{address} argument, see below).
 
-		Example named pipe: >
+		- If {address} has a colon (":") it is a TCP/IPv4/IPv6 address
+		  where the last ":" separates host and port (empty or zero
+		  assigns a random port).
+		- Else {address} is the path to a named pipe (except on Windows).
+		  - If {address} has no slashes ("/") it is treated as the
+		    "name" part of a generated path in this format: >
+			stdpath("run").."/{name}.{pid}.{counter}"
+<		  - If {address} is omitted the name is "nvim". >
+			:echo serverstart()
+			=> /tmp/nvim.bram/oknANW/nvim.15430.5
+
+<		Example bash command to list all Nvim servers: >
+			ls ${XDG_RUNTIME_DIR:-${TMPDIR}nvim.${USER}}/*/nvim.*.0
+
+<		Example named pipe: >
 			if has('win32')
 			  echo serverstart('\\.\pipe\nvim-pipe-1234')
 			else
@@ -7718,7 +7724,7 @@ sqrt({expr})						*sqrt()*
 			:echo sqrt(100)
 <			10.0 >
 			:echo sqrt(-4.01)
-<			str2float('nan')
+<			str2float("nan")
 		NaN may be different, it depends on system libraries.
 
 		Can also be used as a |method|: >
@@ -7779,7 +7785,7 @@ stdpath({what})					*stdpath()* *E6100*
 		run          String  Run directory: temporary, local storage
 				     for sockets, named pipes, etc.
 		state        String  Session state directory: storage for file
-				     drafts, undo, |shada|, etc.
+				     drafts, swap, undo, |shada|.
 
 		Example: >
 			:echo stdpath("config")

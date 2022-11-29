@@ -10,6 +10,8 @@ exec 'set rtp^=' .. s:self_plugin_dir
 exec 'source ' .. g:self_setup_dir .. '/custom/keymap.vim'
 
 let g:deoplete#enable_at_startup = 1
+let g:airline#extensions#lsp#enabled = 0
+
 lua require 'user.plugins'
 lua require 'user.keybindings'
 lua require 'user.options'
