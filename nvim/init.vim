@@ -20,3 +20,7 @@ lua require 'user.plugin_config'
 lua require 'user.lsp_config'
 lua require 'user.ts_config'
 
+let s:vim_script_dir = g:self_setup_dir .. '/nvim/vim_scripts/'
+for scripts in systemlist('ls ' .. s:vim_script_dir)
+    exec 'source ' .. s:vim_script_dir .. scripts
+endfor

@@ -66,6 +66,9 @@ setup_autojump() {
 	cd $SUBMODULE_DIR/autojump && ./install.py || echo "please do: git submodule update --init\nthen re run: make autojump"
 }
 
+${SETUPDIR}/setup/pynvim.sh
+
+
 is_zsh && setup_ohmyzsh
 is_zsh && setup_powerlevel10k
 setup_fzf

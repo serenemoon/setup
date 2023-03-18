@@ -62,7 +62,7 @@ require('lspconfig')['powershell_es'].setup {
 	bundle_path = '~/.local/share/powershell-editor-service/PowerShellEditorServices',
 	shell = 'pwsh'
 }
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
 	on_attach = on_attach,
 	settings = {
 		Lua = {
