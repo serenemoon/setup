@@ -1,4 +1,4 @@
-default:git vim rg fzf
+default:git rg fzf
 
 SILENT=@
 IGNORE_ERROR=-
