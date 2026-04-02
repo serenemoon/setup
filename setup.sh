@@ -93,11 +93,6 @@ setup_fzf
 setup_autojump
 setup_initrc
 
-sudo apt install -y python3-venv
-# install need softwares
-which gtags || sudo apt install -y global
-which python3 || sudo apt install -y python3
-
 # INSTALL PYTHON Packages
 # pynvim for nvim
 python3 -m pip list | grep pynvim || python3 -m pip install pynvim
@@ -106,6 +101,7 @@ which uv || curl -LsSf https://astral.sh/uv/install.sh | sh
 
 #============ SOURCE SUB SCRIPTS ============================
 . ${SETUPDIR}/setup/setup_nvim.sh
+. ${SETUPDIR}/setup/setup_utils.sh
 
 LOG_INFO end of setting up
 # vim: ft=bash

@@ -20,6 +20,8 @@ git:
 	${SILENT}git config --global alias.df  "diff HEAD~1"
 	${SILENT}git config --global --add oh-my-zsh.hide-status 1
 	${SILENT}git config --global --add oh-my-zsh.hide-dirty 1
+	${SILENT}git config --global user.email "teddy0416@163.com"
+	${SILENT}git config --global user.name "teddy"
 
 nerdfont:
 	${SILENT}cd external/download; wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Inconsolata.zip
